@@ -1,0 +1,16 @@
+.navbar {
+    background-color: black;
+    color: white;
+}
+.navbar-netflix-img{
+    justify-content: left;
+    max-width: 100px;
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+@media screen and (max-width: 767px){
+	
+}

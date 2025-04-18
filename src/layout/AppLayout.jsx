@@ -4,14 +4,17 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './AppLayout.style.css';
 import { Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
   return (
     <div>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar">
     <Container fluid>
-      <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+      <Navbar.Brand href="/">
+        <img className="navbar-netflix-img" src="https://kreafolk.com/cdn/shop/articles/netflix-logo-design-history-and-evolution-kreafolk_149b6498-ceef-45a6-a671-f45dab16b804.jpg?v=1717725026&width=2048" />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -19,8 +22,8 @@ const AppLayout = () => {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link href="#action1">Home</Nav.Link>
-          <Nav.Link href="#action2">Link</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/movies">Movies</Nav.Link>
       
         </Nav>
         <Form className="d-flex">
