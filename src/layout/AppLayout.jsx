@@ -30,7 +30,7 @@ const AppLayout = () => {
           <Form.Control
             type="search"
             placeholder="Search"
-            className="me-2"
+            className="me-2 bg-black text-white"
             aria-label="Search"
           />
           <Button variant="outline-danger">Search</Button>
