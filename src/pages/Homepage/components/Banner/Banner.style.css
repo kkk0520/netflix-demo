@@ -26,3 +26,17 @@
 .banner-text-area > *{
     z-index: 2;
 }
+
+@media (max-width: 767px) {
+  .banner-text-area {
+    width: 100%;
+  }
+
+}
+
+.banner-text-area p {
+    font-size: 1rem;
+    max-height: 8em;
+    text-overflow: ellipsis;
+  
+  }
