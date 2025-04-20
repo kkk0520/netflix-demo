@@ -10,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 const AppLayout = () => {
   return (
     <div>
-    <Navbar expand="lg" className="navbar">
+    <Navbar expand="lg" className="navbar" bg="transparent" variant="dark">
     <Container fluid>
       <Navbar.Brand href="/">
         <img className="navbar-netflix-img" src="https://kreafolk.com/cdn/shop/articles/netflix-logo-design-history-and-evolution-kreafolk_149b6498-ceef-45a6-a671-f45dab16b804.jpg?v=1717725026&width=2048" />
