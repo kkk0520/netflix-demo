@@ -1,8 +1,18 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
+import { useGenreListQuery } from '../../../../hooks/useMovieGenreIds'
 
 const MovieCard = ({movie}) => {
+
+    const { data : genreData} = useGenreListQuery()
+    console.log("무비카드 장르 : ", genreData)
+
+    const getGenreName = (genreId) => {
+        const genreName = ''     
+        return genreName
+    }
+
   return (
     <div
         style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`+")",
@@ -12,12 +22,12 @@ const MovieCard = ({movie}) => {
         <div className="overlay">
             <h1>{movie.title}</h1>
             {movie.genre_ids.map((id)=>(
-                <Badge bg="danger">{id}</Badge>
+                <Badge bg="danger">{getGenreName(id)}</Badge>
             ))}
        
             <div>
-                <div>{movie.vote_average}</div>
-                <div>{movie.popularity}</div>
+                <div>average : {movie.vote_average}</div>
+                <div>popularity : {movie.popularity}</div>
                 <div>{movie.adult ? "over18" : "under18"}</div>
             </div>
         </div>

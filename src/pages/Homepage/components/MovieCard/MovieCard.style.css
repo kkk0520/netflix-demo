@@ -24,6 +24,6 @@
 }
 
 .movie-card:hover{
-    transform: scale(1.3) trnaslatez(20px);
+    transform: scale(1.3) translatez(20px);
     z-index: 2;
 }
