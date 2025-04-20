@@ -8,10 +8,14 @@ const MovieCard = ({movie}) => {
     const { data : genreData} = useGenreListQuery()
     console.log("무비카드 장르 : ", genreData)
 
-    const getGenreName = (genreId) => {
-        const genreName = ''     
-        return genreName
-    }
+    const getGenreName = ((genreId) => {
+
+        const genre = genreData.find((item) => {
+            return item.id === genreId
+        })
+
+        return genre.name;
+    })
 
   return (
     <div

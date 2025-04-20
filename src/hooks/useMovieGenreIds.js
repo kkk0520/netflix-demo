@@ -10,7 +10,7 @@ export const useGenreListQuery=()=>{
     return useQuery({
         queryKey: ['movie-genre'],
         queryFn: fetchGenreList,
-        select: (result) => result.data,
+        select: (result) => result.data.genres,
         
     })
 }
