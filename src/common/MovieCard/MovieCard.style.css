@@ -17,7 +17,8 @@
     color: white;
     font-weight: bold;
     overflow-wrap: break-word;
-    justify-content: end;
+    position: fixed;
+    bottom: 0px;
 }
 
 .overlay:hover{

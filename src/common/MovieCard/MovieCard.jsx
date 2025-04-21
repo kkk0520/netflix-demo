@@ -1,7 +1,8 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
-import { useGenreListQuery } from '../../../../hooks/useMovieGenreIds'
+import {useGenreListQuery} from '../../hooks/useMovieGenreIds'
+
 
 const MovieCard = ({movie}) => {
 
@@ -26,8 +27,8 @@ const MovieCard = ({movie}) => {
     >
         <div className="overlay">
             <h1>{movie.title}</h1>
-            {movie.genre_ids.map((id)=>(
-                <Badge bg="danger">{getGenreName(id)}</Badge>
+            {movie.genre_ids.map((id, index)=>(
+                <Badge bg="danger" key={index}>{getGenreName(id)}</Badge>
             ))}
        
             <div>

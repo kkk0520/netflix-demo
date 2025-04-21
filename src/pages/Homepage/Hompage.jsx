@@ -1,8 +1,8 @@
 import React from 'react'
 import Banner from './components/Banner/Banner'
-import PopularMovieSlide from './components/Banner/PopularMovieSlide/PopularMovieSlide'
-import NowPlayingMovieSlide from './components/Banner/NowPlayingMovieSlide/NowPlayingMovieSlide'
-import UpcomingMovieSlide from './components/Banner/UpcomingMovieSlide/UpcomingMovieSlide'
+import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
+import NowPlayingMovieSlide from './components/NowPlayingMovieSlide/NowPlayingMovieSlide'
+import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide'
 
 // 1. 배너 => 인기 영화 첫번째 아이템 보여주기
 // 2. 인기영화
@@ -12,7 +12,7 @@ const Hompage = () => {
   return (
     <div>
         <Banner />
-        <PopularMovieSlide />
+        <PopularMovieSlide />        
         <NowPlayingMovieSlide />
         <UpcomingMovieSlide />
     </div>
