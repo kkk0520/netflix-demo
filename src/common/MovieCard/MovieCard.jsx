@@ -7,17 +7,17 @@ import {useGenreListQuery} from '../../hooks/useMovieGenreIds'
 const MovieCard = ({movie}) => {
 
     const { data : genreData} = useGenreListQuery()
-    console.log("무비카드 장르 : ", genreData)
 
-    const getGenreName = ((genreId) => {
+    const showGenre = (genreIdList) => {
 
         if (!genreData) return []
-        const genre = genreData.find((item) => {
-            return item.id === genreId
-        })
+        const genreNameList = genreIdList.map((id) =>{
+            const genreObj = genreData.find(genre=>genre.id === id)
+            return genreObj.name;
+        });
 
-        return genre.name;
-    })
+        return genreNameList;
+    }
 
   return (
     <div
@@ -27,8 +27,8 @@ const MovieCard = ({movie}) => {
     >
         <div className="overlay">
             <h1>{movie.title}</h1>
-            {movie.genre_ids.map((id, index)=>(
-                <Badge bg="danger" key={index}>{getGenreName(id)}</Badge>
+            {showGenre(movie.genre_ids).map((genre, index)=>(
+                <Badge bg="danger" key={index}>{genre}</Badge>
             ))}
        
             <div>
