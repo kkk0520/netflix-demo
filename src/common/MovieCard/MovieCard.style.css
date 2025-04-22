@@ -17,7 +17,7 @@
     color: white;
     font-weight: bold;
     overflow-wrap: break-word;
-    position: fixed;
+    position: relative;
     bottom: 0px;
 }
 
@@ -33,4 +33,9 @@
 .movie-card-text{
     position: fixed;
     bottom: 0px;
+}
+
+.movie-card-title{
+    font-size: 2rem;
+    font-weight: bold;
 }
