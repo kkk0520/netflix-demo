@@ -18,10 +18,10 @@ import { useGenreListQuery } from '../../hooks/useMovieGenreIds'
 // page 값이 바뀔 때 마다 useSearchMovie에 page까지 넣어서 fetch
 const MoviePage = () => {
   const sortList = [
-    {id: "popDesc", name: "인기 많은순"},
-    {id: "popAsc", name: "인기 적은순"},
-    {id: "voteDesc", name: "평점 높은순"},
-    {id: "voteAsc", name: "평점 낮은순"}
+    {id: "popularity.desc", name: "인기 많은순"},
+    {id: "popularity.asc", name: "인기 적은순"},
+    {id: "vote_average.desc", name: "평점 높은순"},
+    {id: "vote_average.asc", name: "평점 낮은순"}
   ]
 
   const { data : genreData} = useGenreListQuery()
@@ -32,40 +32,52 @@ const MoviePage = () => {
   const [genre, setGenre] = useState(null);
   const [sort, setSort] = useState("");
   const [data, setData] = useState(null);
-
-
-  const keyword = query.get('q')
-  const {data : movieData, isLoading, isError, error} = useSearchMovieQuery({keyword, page, genre})
+ 
+  let keyword = query.get('q');
+ 
+  const {data : movieData, isLoading, isError, error} = useSearchMovieQuery({keyword, page, genre, sort})
 
 console.log("무비데이터 : ", movieData?.results.length  )
   useEffect(() => {
     setPage(1);
-  }, [keyword, genre]);
+  }, [keyword, genre, sort]);
 
   useEffect(()=>{
-    setGenre(null);
-
+    if(keyword != ""){
+      setGenre(null);
+      setSort("");
+    }
   }, [keyword])
-  
+
   useEffect(() => {
     if (movieData) {
       setData(movieData);
     }
-    if (sort !== "") {
-      setSort();
+    if(genre || sort){
+      keyword = "";
     }
+
   }, [movieData]);
+/*
+  useEffect(()=>{
+    console.log(" useEffect keyword ", keyword)
+    if(!keyword){    
+      console.log("탔음")  
+      setSort("")
+      setGenre(null)
+    }
+  }, [keyword]);
 
   useEffect(() => {
     if (sort !== "") {
       sortMovie();
     }
   }, [sort, genre]);
-
+*/
   const handlePageClick = ({selected}) => {
     setPage(selected + 1)
   }
-  
+  /*
   const sortMovie = () => {
     let sortedData = data
     if (sort === "popAsc") {
@@ -94,7 +106,7 @@ console.log("무비데이터 : ", movieData?.results.length  )
     setData({ ...data, results: sortedData });
     
   };
-
+*/
   const filterMovieByGenre = () => {
 
     const filteredData = movieData.results.filter((movie) => {
@@ -131,7 +143,7 @@ console.log("무비데이터 : ", movieData?.results.length  )
 
         <Dropdown.Menu>
           {sortList.map((sortBy, index)=>(
-            <Dropdown.Item key={index} onClick={() => setSort(sortBy.id)}>
+            <Dropdown.Item key={index} onClick={() =>{ keyword = ""; setSort(sortBy.id)}}>
             {sortBy.name}
             </Dropdown.Item>
           ))}
@@ -144,7 +156,7 @@ console.log("무비데이터 : ", movieData?.results.length  )
 
         <Dropdown.Menu>
           {genreData?.map((item, index) => (
-            <Dropdown.Item onClick={() => setGenre(item.id)} key={index}>
+            <Dropdown.Item onClick={() => {keyword = ""; setGenre(item.id)}} key={index}>
               {item.name}
             </Dropdown.Item>
           ))}
