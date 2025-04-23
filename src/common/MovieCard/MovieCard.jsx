@@ -10,7 +10,7 @@ const MovieCard = ({movie}) => {
 
     const showGenre = (genreIdList) => {
 
-        if (!genreData) return []
+        if (!genreData || !genreIdList) return []
         const genreNameList = genreIdList.map((id) =>{
             const genreObj = genreData.find(genre=>genre.id === id)
             return genreObj.name;
