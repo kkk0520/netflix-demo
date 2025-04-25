@@ -19,7 +19,7 @@ const MovieDetailPage = () => {
 
   console.log("디테일데이타 : ", data)
   console.log("프리뷰데이타 : ", previewData)
-  
+
   const opts={
     playerVars: {      
       autoplay: 1, //자동재생 O
