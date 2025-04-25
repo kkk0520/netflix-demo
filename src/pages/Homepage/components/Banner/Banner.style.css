@@ -15,12 +15,17 @@
 }
 
 .banner-text-area{
-    width: 36%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     padding: 2rem;
+
+    word-break: break-word;
+    overflow: hidden; /* 넘치는 텍스트 가리기 */
+    text-overflow: ellipsis; /* 넘치는 텍스트를 점(...)으로 표시 */
+    
 }
 
 .banner-text-area > *{
