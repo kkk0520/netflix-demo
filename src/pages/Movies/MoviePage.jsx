@@ -164,14 +164,10 @@ console.log("무비데이터 : ", movieData?.results.length  )
       </Dropdown>
     </div>
       <Row>
-        <Col>
-          
-          
-        </Col>
         <Col lg={8} xs={12}>
-          <Row>
+          <Row className="movie-list" >
             {data?.results.length > 0 ? data?.results.map((movie, index)=>(
-              <Col key={index} lg={4} xs={12}>
+              <Col className="movie-list" key={index} lg={4} xs={12}>
                 <MovieCard movie={movie} />
               </Col>
             )) : <Alert variant="danger">검색 결과가 없습니다.</Alert>}

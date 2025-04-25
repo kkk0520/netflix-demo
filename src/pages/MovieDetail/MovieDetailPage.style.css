@@ -1,3 +1,10 @@
-.youtube-frame{
+.preview{
     width:100%
 }
+
+.youtube-frame{
+    width:100%;
+    max-width: 767px;
+}
+
+

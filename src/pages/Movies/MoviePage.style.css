@@ -5,3 +5,10 @@
     padding: 0;
     margin: 3rem 1rem;
   }
+
+.movie-list {
+  justify-content: center;
+  justify-items: center;
+  text-align:center;
+  
+}

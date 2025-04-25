@@ -11,9 +11,7 @@ import "./MovieDetailPage.style.css"
 
 const MovieDetailPage = () => {
 
-  console.log("MOVIE DETAIL 페이지 진입")
   const { id } = useParams();
-  console.log("무비아이디 : ", id)
   const { data, isLoading, isError, error } = useMovieDetailQuery(id)
   const { data: previewData, isLoading: previewIsLoading, previewIsError, previewError } = useMoviePreviewQuery(id)
 
@@ -21,7 +19,9 @@ const MovieDetailPage = () => {
   console.log("프리뷰데이타 : ", previewData)
 
   const opts={
-    playerVars: {      
+    playerVars: {    
+  
+      
       autoplay: 1, //자동재생 O
       rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
       modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
@@ -45,13 +45,15 @@ const MovieDetailPage = () => {
   }
 
   return (
+    
       <Container className="pb-5">
-        <Row>
-        <Col className="mt-5">                    
+        <Row className="preview">
+        <Col className="mt-5 preview">                    
             <YouTube
               videoId={previewData?.results[0].key}
               opts={opts}              
-              className="youtube-frame"
+              
+              iframeClassName='youtube-frame'
             />
           </Col>
           </Row>
